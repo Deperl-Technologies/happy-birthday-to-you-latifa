@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Happy Birthday, Latifa! ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(145deg, #fce4e0 0%, #f9c9d1 100%);
+            color: #2e1b16;
+            overflow-x: hidden;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 5vw, 4rem);
+        }
+
+        /* ── Hero Video ── */
+        .hero-video {
+            position: relative;
+            width: 100%;
+            height: 100dvh;
+            min-height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-video video {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-video .overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.25);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: min(900px, 90%);
+            padding: clamp(1rem, 4vh, 2rem);
+            color: #fff9f5;
+            text-shadow: 3px 3px 12px rgba(90,30,20,0.6);
+        }
+
+        .hero-content h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2.8rem, 12vw, 5.5rem);
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            color: #ffeae5;
+            word-break: break-word;
+            animation: softGlow 3s infinite alternate;
+            line-height: 1.2;
+        }
+
+        .hero-content p { font-size: clamp(1.1rem, 4vw, 1.7rem); margin: 0.5rem 0; font-weight: 300; line-height: 1.4; }
+        .hero-content .intro { font-size: clamp(1.3rem, 5vw, 2rem); margin-top: 1rem; }
+        .scroll-hint { margin-top: clamp(2rem, 6vh, 3rem); font-size: clamp(1.1rem, 3.5vw, 1.4rem); }
+
+        .heart-symbol {
+            display: inline-block;
+            font-size: clamp(2rem, 7vw, 2.5rem);
+            line-height: 1;
+            margin-left: 0.5rem;
+            animation: heartbeat 1.8s infinite;
+            color: #ffccd9;
+        }
+
+        @keyframes softGlow {
+            0%   { text-shadow: 2px 2px 10px rgba(255,200,210,0.6); }
+            100% { text-shadow: 6px 6px 20px rgba(255,120,150,0.8); }
+        }
+
+        @keyframes heartbeat {
+            0%   { transform: scale(1); }
+            30%  { transform: scale(1.2); }
+            50%  { transform: scale(1.1); }
+            70%  { transform: scale(1.25); }
+            100% { transform: scale(1); }
+        }
+
+        /* ── Gallery ── */
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2.2rem, 8vw, 3rem);
+            text-align: center;
+            margin: clamp(2rem, 6vh, 3rem) 0 clamp(1rem, 3vh, 1.5rem);
+            color: #a64d4d;
+            padding: 0 1rem;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+            gap: clamp(1rem, 3vw, 2rem);
+            padding: clamp(1rem, 4vw, 2rem);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .photo-item {
+            position: relative;
+            border-radius: min(30px, 6vw);
+            overflow: hidden;
+            box-shadow: 0 20px 30px rgba(130,50,50,0.3);
+            border: 4px solid #fff0eb;
+            transition: transform 0.3s ease;
+            aspect-ratio: 1 / 1.1;
+            background: #ffe2db;
+            width: 100%;
+        }
+
+        .photo-item:hover { transform: scale(1.02) rotate(0.5deg); }
+
+        .photo-item img,
+        .photo-item video {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s;
+        }
+
+        .photo-item:hover img,
+        .photo-item:hover video { transform: scale(1.1); }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, #d66b7acc);
+            color: white;
+            padding: 1.5rem 0.8rem 0.8rem;
+            font-weight: 500;
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            transform: translateY(100%);
+            transition: transform 0.4s;
+            text-align: center;
+            backdrop-filter: blur(3px);
+        }
+
+        .photo-item:hover .photo-caption { transform: translateY(0); }
+
+        /* ── Memory Lane ── */
+        .memory-lane {
+            background: #fce2dc;
+            padding: clamp(2rem, 6vh, 3rem) clamp(1rem, 4vw, 2rem);
+            text-align: center;
+            font-size: clamp(1.3rem, 5vw, 2rem);
+            border-top: 5px solid #e6a2b0;
+            border-bottom: 5px solid #e6a2b0;
+            margin: 2rem 0;
+            box-shadow: inset 0 0 20px #ffc2b3;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: clamp(1rem, 3vw, 2rem);
+        }
+
+        .memory-lane span {
+            display: inline-block;
+            margin: 0;
+            background: #fff0ed;
+            color: #862d4a;
+            padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1.2rem, 4vw, 2rem);
+            border-radius: 60px;
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            font-weight: 600;
+            box-shadow: 0 8px 0 #ba7a72;
+            border: 2px solid #ffe5e0;
+            white-space: nowrap;
+        }
+
+        .memory-lane span:first-child { background: #ffd9e1; }
+        .memory-lane span:last-child  { background: #ffe0b5; }
+
+        /* ── Timeline ── */
+        .timeline-section {
+            background: #fffaf5;
+            border-radius: min(50px,8vw) min(50px,8vw) 0 0;
+            padding: clamp(2rem,6vh,3rem) clamp(1rem,4vw,2rem) clamp(3rem,8vh,5rem);
+            margin-top: 3rem;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 clamp(0.5rem, 2vw, 2rem);
+            /* FIX: hide the emoji overflow on mid-width screens */
+            overflow: hidden;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: #d47b8f;
+            top: 0; bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            padding: 1rem clamp(1rem, 3vw, 3rem);
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd)  { left: 0;   text-align: right; }
+        .timeline-item:nth-child(even) { left: 50%; text-align: left;  }
+
+        .timeline-content {
+            background: white;
+            padding: clamp(1rem, 3vw, 1.5rem) clamp(1.2rem, 4vw, 2rem);
+            border-radius: min(30px, 5vw);
+            box-shadow: 0 15px 25px #f5becd;
+            border: 2px solid #ffd6df;
+            position: relative;
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: #c95f74;
+            font-size: clamp(1.2rem, 4vw, 1.4rem);
+            margin-bottom: 0.5rem;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .timeline-content p { font-size: clamp(0.9rem, 3vw, 1rem); line-height: 1.5; }
+
+        .timeline-item:nth-child(odd)  .timeline-content::after { content: '✨'; position: absolute; right: -30px; top: 20px; font-size: 2rem; }
+        .timeline-item:nth-child(even) .timeline-content::after { content: '✨'; position: absolute; left:  -30px; top: 20px; font-size: 2rem; }
+
+        /* ── Surprise ── */
+        .surprise-section {
+            background: rgba(255,240,235,0.8);
+            border-radius: min(60px,8vw);
+            padding: clamp(2rem,6vh,3rem) clamp(1.5rem,4vw,2rem);
+            margin: 4rem clamp(1rem,4vw,2rem);
+            backdrop-filter: blur(5px);
+            text-align: center;
+        }
+
+        .surprise-section h2 { font-size: clamp(2rem,8vw,3rem); margin-bottom: 1rem; }
+        .surprise-section p  { font-size: clamp(1rem,3.5vw,1.2rem); margin: 1rem 0; }
+
+        /* FIX: single margin declaration (no duplicate override) */
+        .surprise-btn {
+            background: #d95f7b;
+            border: none;
+            color: white;
+            font-size: clamp(1.3rem, 5vw, 1.7rem);
+            font-family: 'Dancing Script', cursive;
+            padding: clamp(0.8rem,3vw,1rem) clamp(2rem,6vw,3rem);
+            border-radius: 60px;
+            cursor: pointer;
+            box-shadow: 0 10px 0 #8f465a;
+            transition: all 0.2s;
+            margin: 1.5rem auto; /* FIX: single declaration instead of three */
+            display: block;
+            width: fit-content;
+        }
+
+        .surprise-btn:active { transform: translateY(6px); box-shadow: 0 4px 0 #8f465a; }
+
+        /* FIX: use class selector consistently (was mixed id/class in JS vs CSS) */
+        .surprise-content {
+            display: none;
+            background: #ffffffd9;
+            border-radius: min(40px,6vw);
+            padding: clamp(1.5rem,5vw,2rem);
+            max-width: 700px;
+            margin: 2rem auto 0;
+            animation: fadeIn 0.8s;
+            width: 100%;
+        }
+
+        .surprise-content h3 { font-size: clamp(1.8rem,6vw,2.5rem); }
+        .surprise-content p  { font-size: clamp(1rem,3.5vw,1.3rem); }
+
+        /* Cake */
+        .cake-container {
+            width: min(200px,70%);
+            height: auto;
+            aspect-ratio: 200/220;
+            margin: 2rem auto;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cake    { width: 90%; height: 45%; background: #f9acb5; border-radius: 20px 20px 0 0; position: absolute; bottom: 18%; left: 5%; box-shadow: 0 8px 0 #b95c6b; }
+        .icing   { width: 100%; height: 16%; background: #ffe0f0; border-radius: 30px 30px 0 0; position: absolute; bottom: 59%; left: 0; box-shadow: 0 4px 0 #c48a9b; }
+        .candle  { width: 6%; height: 23%; background: #feeb99; position: absolute; bottom: 77%; left: 47%; border-radius: 6px 6px 0 0; box-shadow: 0 6px 0 #c9a95c; }
+        .flame   { width: 12%; height: 18%; background: #ffb56b; border-radius: 50% 50% 30% 30%; position: absolute; bottom: 97%; left: 44%; animation: flicker 0.6s infinite alternate; transform-origin: bottom; }
+
+        @keyframes flicker {
+            0%   { transform: scale(1)   rotate(-2deg); opacity: 1;   }
+            100% { transform: scale(1.1) rotate(3deg);  opacity: 0.9; }
+        }
+
+        /* ── Final Message ── */
+        .final-message {
+            background: linear-gradient(130deg, #f3a7b3, #fbc2c2);
+            color: #2d1212;
+            padding: clamp(3rem,8vh,4rem) clamp(1.5rem,5vw,2rem);
+            border-radius: min(60px,8vw) min(60px,8vw) 0 0;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .final-message h2 { font-family: 'Dancing Script', cursive; font-size: clamp(2.5rem,10vw,3.8rem); margin-bottom: 1.5rem; color: #fff0ed; text-shadow: 2px 2px 0 #a9445a; }
+        .final-message p  { font-size: clamp(1.2rem,4vw,1.7rem); max-width: 800px; margin: 1rem auto; line-height: 1.5; }
+        .signature        { font-family: 'Dancing Script', cursive; font-size: clamp(2rem,8vw,2.8rem); margin-top: 2rem; color: #541c2b; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to   { opacity: 1; transform: scale(1);   }
+        }
+
+        /* Confetti & Balloons */
+        .confetti {
+            position: fixed;
+            width: clamp(6px,2vw,12px);
+            height: clamp(6px,2vw,12px);
+            background: #ffacc7;
+            opacity: 0.8;
+            border-radius: 0;
+            animation: fall linear forwards;
+            z-index: 2000;
+            pointer-events: none;
+        }
+
+        .balloon {
+            position: fixed;
+            width: clamp(35px,10vw,45px);
+            height: clamp(45px,12vw,55px);
+            border-radius: 50%;
+            animation: float 18s ease-in infinite;
+            z-index: 1500;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        @keyframes fall  { to { transform: translateY(120vh) rotate(400deg); opacity: 0; } }
+        @keyframes float {
+            0%   { transform: translateY(110vh) translateX(0); opacity: 0.9; }
+            100% { transform: translateY(-20vh) translateX(calc(30vw * var(--drift))); opacity: 0; }
+        }
+
+        /* ── Audio fallback button (now a CSS class — FIX) ── */
+        .audio-fallback-btn {
+            position: fixed;
+            bottom: 20px; right: 20px;
+            z-index: 3000;
+            background: #ffd9cc;
+            border: none;
+            border-radius: 40px;
+            padding: 14px 24px;
+            font-size: clamp(0.9rem, 4vw, 1.2rem); /* FIX: clamp works in CSS, not inline style */
+            box-shadow: 0 5px 15px #bb7070;
+            cursor: pointer;
+            color: #451e2a;
+            font-weight: bold;
+            max-width: 90%;
+            white-space: normal;
+            word-break: break-word;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .timeline::after { left: 30px; }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 60px;
+                padding-right: 1rem;
+                text-align: left !important;
+            }
+
+            /* FIX: hide emojis on mobile to prevent overflow */
+            .timeline-item .timeline-content::after { display: none; }
+
+            .timeline-item:nth-child(odd)  .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content { text-align: left; }
+
+            .photo-gallery { grid-template-columns: repeat(auto-fit, minmax(min(220px,100%),1fr)); gap: 1.5rem; }
+
+            .memory-lane span { white-space: normal; word-break: break-word; font-size: clamp(1rem,4vw,1.4rem); }
+        }
+
+        @media (max-width: 480px) {
+            .hero-video { min-height: 550px; }
+
+            .photo-gallery { grid-template-columns: 1fr; gap: 1.5rem; padding: 1rem; }
+
+            .photo-item { max-width: 350px; margin: 0 auto; width: 100%; }
+
+            .memory-lane { flex-direction: column; align-items: center; }
+            .memory-lane span { width: fit-content; }
+
+            .surprise-section { margin: 2rem 0.5rem; padding: 1.5rem 1rem; }
+        }
+
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero-video { min-height: 100vh; height: auto; padding: 2rem 0; }
+            .hero-content h1 { font-size: clamp(2rem,8vw,3.5rem); }
+            .hero-content p  { font-size: clamp(0.9rem,3vw,1.2rem); }
+        }
+
+        @media (min-width: 1600px) { .photo-gallery { grid-template-columns: repeat(4,1fr); } }
+
+        .media-note {
+            text-align: center;
+            padding: clamp(1rem,4vh,20px);
+            background: #f4d9d0;
+            color: #572c28;
+            border-radius: min(40px,8vw) min(40px,8vw) 0 0;
+            margin-top: 30px;
+            font-size: clamp(0.9rem,3vw,1rem);
+        }
+
+        .media-note p { margin: 0.5rem 0; }
+        .media-note p:last-child { font-size: clamp(1.3rem,5vw,1.8rem); }
+    </style>
+</head>
+<body>
+
+    <!-- ════════════════════════════════════════════
+         HERO VIDEO SECTION
+         ▸ Replace "hero.mp4" with your video file path
+         ════════════════════════════════════════════ -->
+    <section class="hero-video">
+
+        <!-- 🎬 VIDEO INSERT — hero background video
+             src="YOUR_VIDEO_FILE.mp4"  ← change this
+             Add/remove <source> tags for different formats -->
+        <video autoplay loop muted playsinline id="heroVideo"
+               aria-label="Birthday celebration background video">
+            <source src="hero.mp4" type="video/mp4">
+            <source src="hero.webm" type="video/webm">
+        </video>
+
+        <div class="overlay"></div>
+
+        <div class="hero-content">
+            <h1>Happy Birthday, Latifa! 🎉</h1>
+            <p class="intro">For my amazing sister —</p>
+            <p>you light up every room with your warmth.</p>
+            <p>This page is filled with memories,</p>
+            <p>love, and surprises made just for you.</p>
+            <div class="scroll-hint">
+                Scroll down to discover all<br>
+                <span class="heart-symbol">❤️</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FIX: audio moved OUTSIDE hero section (was inside overflow:hidden section) -->
+    <!-- 🎵 AUDIO INSERT — birthday background music
+         src="YOUR_SONG.mp3"  ← change this
+         Remove "autoplay" attribute; JS handles play with user-gesture fallback -->
+    <audio id="birthdaySong" loop style="display:none;">
+        <source src="birthday.mp3" type="audio/mpeg">
+        <source src="happy-birthday-latifa.ogg" type="audio/ogg">
+    </audio>
+
+    <!-- ════════════════════════════════════════════
+         PHOTO GALLERY
+         ════════════════════════════════════════════ -->
+    <h2 class="section-title">✨ Sisterhood through the years ✨</h2>
+    <div class="photo-gallery">
+
+        <!-- 🖼️ IMAGE INSERT #1
+             src="YOUR_IMAGE.jpg"  ← change this
+             alt="Description"     ← describe the photo -->
+        <div class="photo-item">
+            <img src="hood.png" alt="Latifa childhood" loading="lazy">
+            <div class="photo-caption">ThrowBack</div>
+        </div>
+
+        <!-- 🎬 VIDEO INSERT — gallery slot (scroll-controlled autoplay)
+             src="YOUR_VIDEO.mp4"  ← change this -->
+        <div class="photo-item" id="sisterAdventureVideoItem">
+            <video loop muted playsinline preload="auto" id="adventureVideo"
+                   aria-label="Sister adventure video">
+                <source src="together.mp4" type="video/mp4">
+                <source src="sister-adventure.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+            <div class="photo-caption">Our Adventure</div>
+        </div>
+
+        <!-- 🖼️ IMAGE INSERT #2
+             src="YOUR_IMAGE.jpg"  ← change this -->
+        <div class="photo-item">
+            <img src="beauty.jpg" alt="Sisters together" loading="lazy">
+            <!-- FIX: second.jpg was missing from gallery but referenced in media-note -->
+            <div class="photo-caption">Beautiful Sister</div>
+        </div>
+
+        <!-- 🖼️ IMAGE INSERT #3
+             src="YOUR_IMAGE.jpg"  ← change this -->
+        <div class="photo-item">
+            <img src="smile.jpg" alt="laughing together" loading="lazy">
+            <div class="photo-caption">Pretty Smile</div>
+        </div>
+
+        <!-- 🖼️ IMAGE INSERT #4
+             src="YOUR_IMAGE.jpg"  ← change this -->
+        <!--<div class="photo-item">
+            <img src="fourth.jpg" alt="sister hug" loading="lazy">
+            <div class="photo-caption">my protector, my best friend</div>
+        </div>-->
+
+        <!-- ➕ TO ADD MORE PHOTOS — copy this block:
+        <div class="photo-item">
+            <img src="YOUR_NEW_IMAGE.jpg" alt="Description" loading="lazy">
+            <div class="photo-caption">Your caption here</div>
+        </div>
+        -->
+
+        <!-- ➕ TO ADD MORE VIDEOS — copy this block:
+        <div class="photo-item">
+            <video loop muted playsinline preload="auto" aria-label="Description">
+                <source src="YOUR_NEW_VIDEO.mp4" type="video/mp4">
+            </video>
+            <div class="photo-caption">Your caption here</div>
+        </div>
+        -->
+    </div>
+
+    <!-- MEMORY LANE -->
+    <div class="memory-lane">
+        <span>❤️ Beautiful memory ❤️</span>
+        <span>📚 Adventure together 🌲</span>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="timeline-section">
+        <h2 class="section-title">💕 Our Story 💕</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">childhood days</div>
+                    <p>building forts, sharing secrets.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">teenage dreams</div>
+                    <p>you taught me about makeup, music, and being brave.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">first big trip</div>
+                    <p>we got lost but found ourselves closer than ever.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">today & always</div>
+                    <p>celebrating you — the most caring sister in the world.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SURPRISE + CAKE -->
+    <div class="surprise-section">
+        <h2>A little Surprise 💖</h2>
+        <p>Click below — confetti, balloons and a special message for you!</p>
+        <button class="surprise-btn" onclick="revealSurprise()">surprise, Latifa!</button>
+
+        <!-- FIX: id and class both present; JS now uses getElementById consistently -->
+        <div id="surprise-content" class="surprise-content">
+            <h3>to my dearest sister</h3>
+            <p>You are the reason I believe in kindness and strength. Thank you for every hug, every laugh, every advice.</p>
+            <p style="background:#fadadd;border-radius:40px;padding:1rem;">💝 On your birthday, I wish you infinite joy, success, and all the cake you want! 💝</p>
+            <p>🎈 love you always, your sis 🎈</p>
+        </div>
+
+        <!-- interactive cake -->
+        <div class="cake-container" onclick="makeWish()">
+            <div class="cake"></div>
+            <div class="icing"></div>
+            <div class="candle"></div>
+            <div class="flame" id="flame"></div>
+        </div>
+        <p>⬆️ click the cake to make a wish! 🕯️</p>
+    </div>
+
+    <!-- FINAL MESSAGE -->
+    <div class="final-message">
+        <h2>happy birthday, Latifa</h2>
+        <p>You deserve the world and more. Today we celebrate YOU<br> the heart of our family.</p>
+        <p>with love and hugs,</p>
+        <div class="signature">Raliat ❤️</div>
+    </div>
+
+    <script>
+        (function () {
+            // Hero video slow playback
+            const heroVideo = document.getElementById('heroVideo');
+            if (heroVideo) heroVideo.playbackRate = 0.7;
+
+            // ── Audio handling ──
+            // FIX: removed "autoplay" from <audio> tag; using JS play() with user-gesture fallback
+            // FIX: button uses a CSS class (.audio-fallback-btn) so clamp() font-size works properly
+            const audio = document.getElementById('birthdaySong');
+            if (audio) {
+                audio.volume = 0.45;
+
+                function attemptPlay() {
+                    audio.play().catch(() => {
+                        if (!document.getElementById('audioFallbackBtn')) {
+                            const btn = document.createElement('button');
+                            btn.id = 'audioFallbackBtn';
+                            btn.className = 'audio-fallback-btn'; // FIX: CSS class handles font-size clamp
+                            btn.innerHTML = '🎵 click to play birthday song 🎵';
+                            btn.onclick = () => { audio.play(); btn.remove(); };
+                            document.body.appendChild(btn);
+                        }
+                    });
+                }
+
+                attemptPlay();
+                document.body.addEventListener('click', function () {
+                    audio.play().catch(() => {});
+                }, { once: true });
+            }
+
+            // ── Scroll-controlled adventure video ──
+            const adventureVideo = document.getElementById('adventureVideo');
+            if (adventureVideo) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            adventureVideo.play().catch(e => console.log('play prevented:', e));
+                        } else {
+                            adventureVideo.pause();
+                        }
+                    });
+                }, { threshold: 0.4 });
+
+                observer.observe(adventureVideo);
+
+                document.addEventListener('visibilitychange', () => {
+                    if (document.hidden) adventureVideo.pause();
+                });
+            }
+        })();
+
+        // ── Confetti ──
+        function createConfetti() {
+            const colors = ['#f7a1c4','#ffb3ba','#ffd1dc','#c4e0fa','#fdd0f2','#fce2c1'];
+            for (let i = 0; i < 60; i++) {
+                const conf = document.createElement('div');
+                conf.className = 'confetti';
+                conf.style.left = Math.random() * 100 + 'vw';
+                conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                conf.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                conf.style.width  = (Math.random() * 12 + 6) + 'px';
+                conf.style.height = (Math.random() * 12 + 6) + 'px';
+                document.body.appendChild(conf);
+                // FIX: guard against element already removed before timeout fires
+                setTimeout(() => { if (conf.parentNode) conf.remove(); }, 5000);
+            }
+        }
+
+        // ── Balloons ──
+        function createBalloons() {
+            const pastels = ['#fdadbb','#ffcfb6','#bae1ff','#dab6fe','#b0f0d0','#ffe5a3'];
+            for (let i = 0; i < 15; i++) {
+                const bal = document.createElement('div');
+                bal.className = 'balloon';
+                bal.style.left = Math.random() * 100 + '%';
+                bal.style.backgroundColor = pastels[Math.floor(Math.random() * pastels.length)];
+                bal.style.animationDuration = (Math.random() * 10 + 12) + 's';
+                bal.style.setProperty('--drift', Math.random() * 1.5 - 0.75);
+                bal.style.width  = (Math.random() * 25 + 35) + 'px';
+                bal.style.height = (Math.random() * 25 + 45) + 'px';
+                document.body.appendChild(bal);
+                setTimeout(() => { if (bal.parentNode) bal.remove(); }, 15000);
+            }
+        }
+
+        window.revealSurprise = function () {
+            const surpriseDiv = document.getElementById('surprise-content');
+            surpriseDiv.style.display = 'block';
+            createConfetti();
+            createBalloons();
+        };
+
+        window.makeWish = function () {
+            const flame = document.getElementById('flame');
+            flame.style.animation = 'none';
+            flame.style.opacity = '0.3';
+            flame.style.transform = 'scale(0.5)';
+            createConfetti();
+            // FIX: alert() still used here but wrapped so it doesn't block the visual state change
+            setTimeout(() => {
+                flame.style.animation = 'flicker 0.6s infinite alternate';
+                flame.style.opacity = '1';
+                flame.style.transform = 'scale(1)';
+                // alert moved after flame restore so CSS update is visible before dialog
+                setTimeout(() => alert('🌟 your wish is in the air! happy birthday, Latifa! 🌟'), 50);
+            }, 200);
+        };
+
+        window.addEventListener('load', createBalloons);
+    </script>
+
+    <!-- media note -->
+    <div class="media-note">
+        <p>Dev by Adeperl🍁<p>
+    <!--<p>🎵 Add your birthday song as "happy-birthday-latifa.mp3" or change the audio src.</p>
+        <p>with love, always 💕</p>-->
+    </div>
+
+</body>
+</html>
